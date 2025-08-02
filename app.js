@@ -82,6 +82,7 @@ io.on('connection', (socket) => {
                     const startDate = new Date().toLocaleString('en-US', {
                         timeZone: 'Asia/Kolkata'
                     });
+                    console.log(startDate);
                     // Do your operations
                     var endDate   = new Date(currentUser[0].mining_started * 1000);
                     
