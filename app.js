@@ -78,7 +78,7 @@ io.on('connection', (socket) => {
                     const coinsPerSecond = (BASE_RATE * multiplier) / 3600;
                     
                     const [currentUser] = await pool.query(`SELECT UNIX_TIMESTAMP(mining_started_at) as mining_started, UNIX_TIMESTAMP(NOW()) as now, is_mining_active from users where id=?`,[userId]);
-                    var startDate = new Date();
+                    
                     const startDate = new Date().toLocaleString('en-US', {
                         timeZone: 'Asia/Kolkata'
                     });
