@@ -79,9 +79,10 @@ io.on('connection', (socket) => {
                     
                     const [currentUser] = await pool.query(`SELECT UNIX_TIMESTAMP(mining_started_at) as mining_started, UNIX_TIMESTAMP(NOW()) as now, is_mining_active from users where id=?`,[userId]);
                     
-                    const startDate = new Date().toLocaleString('en-US', {
+                    const startDateString = new Date().toLocaleString('en-US', {
                         timeZone: 'Asia/Kolkata'
                     });
+                    const startDate = new Date(startDateString);
                     console.log(startDate);
                     // Do your operations
                     var endDate   = new Date(currentUser[0].mining_started * 1000);
